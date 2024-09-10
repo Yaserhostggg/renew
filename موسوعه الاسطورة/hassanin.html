@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./personal.css">
+</head>
+<header>
+    <img class="logo" src="https://scontent.fbgw66-2.fna.fbcdn.net/v/t39.30808-6/458735912_1560639648192300_2697949292185223957_n.jpg?stp=dst-jpg_s720x720&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=K7sdEDx9GOUQ7kNvgHbRICx&_nc_ht=scontent.fbgw66-2.fna&oh=00_AYCRBYtJimEQnrZqfCKJmjtkhW7XAlr4vXvSQ_feo7Xohw&oe=66E26915" alt="nothing">
+
+    <nav class="things">
+        <button onclick="toggleLanguage()" id="langButton">العربية</button>
+
+        <a href="#" data-lang-en="Personal blog" data-lang-ar="مدونة شخصية">Personal blog</a>
+        <span class="menu-icon">☰</span>
+    </nav>
+</header>
+<body>
+    <div class="blur-background"></div> <!-- الخلفية المغوشة -->
+    <div class="menu-content">
+        <a href="page1.html" data-lang-en="Owner and Executor"  data-lang-ar="المالك والمنفذ">Owner and Executor</a>
+        <a href="page2.html"  data-lang-en="the proposing"  data-lang-ar="صاحب الاقتراح">The proposing</a>
+        <a href="page3.html" data-lang-en="My Personal Blog"  data-lang-ar="مدونتي الشخصية">My Personal Blog</a>
+    </div>
+    
+
+
+
+    <footer class="footer">
+        <p class="footer-title">Copyrights @ <span>Ysser ammar</span></p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100027388380908&mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/q_yaser5?fbclid=IwZXh0bgNhZW0CMTAAAR3SNCCPV0SFov_rDVTGZYRuBw8nGpHxqLvpcea2tnxfTqbNf8YqjEYPULs_aem_AUNLr7ASDueR5765H5JB6meM4lwc3cHN53PH63U06Xny89WXNshwgAzWaB55WH1WZFDjxN9jrZF2o3HyZHh6ihE2"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/Yasser%20Ammar?fbclid=IwZXh0bgNhZW0CMTAAAR2mWbA6PWsBXAySyDcu2KXtHgQbZC-t4lIavSXa_-fSgC2nnYr53t9ICXw_aem_AUN4afyisRIUaw2JjUePV7v102Vwz1ur4b6Xz1PDPy5U8as2lHNV2xAe3la2xXJtoHR2Qra8NS0lwBaD61NqFSNW"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.tiktok.com/@yasser_g2g?_t=8n5jylNL4hm&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </footer>
+    <script>
+        function toggleLanguage() {
+            var langButton = document.getElementById("langButton");
+            var currentLang = document.documentElement.lang;
+
+            var newLang = currentLang === "en" ? "ar" : "en";
+            var newDir = newLang === "ar" ? "rtl" : "ltr";
+            var buttonLabel = newLang === "ar" ? "English" : "العربية";
+
+            document.documentElement.lang = newLang;
+            document.body.dir = newDir;
+            langButton.textContent = buttonLabel;
+
+            var elements = document.querySelectorAll("[data-lang-en]");
+            elements.forEach(function(element) {
+                var text = element.getAttribute("data-lang-" + newLang);
+                element.textContent = text;
+            });
+        }
+    </script>
+
+<script>
+    // عند النقر على الأيقونة، يتم إظهار القائمة وتمويه الخلفية
+    document.querySelector('.menu-icon').addEventListener('click', function() {
+        var menuContent = document.querySelector('.menu-content');
+        var blurBackground = document.querySelector('.blur-background');
+        
+        if (menuContent.style.display === 'block') {
+            menuContent.style.opacity = '0';
+            menuContent.style.transform = 'translate(-50%, -50%) scale(0.95)';
+            setTimeout(function() {
+                menuContent.style.display = 'none';
+                blurBackground.style.display = 'none';
+            }, 500);
+        } else {
+            blurBackground.style.display = 'block';
+            menuContent.style.display = 'block';
+            setTimeout(function() {
+                menuContent.style.opacity = '1';
+                menuContent.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 10);
+        }
+    });
+
+    // إخفاء القائمة عند النقر خارجها
+    window.onclick = function(event) {
+        if (!event.target.matches('.menu-icon')) {
+            var menuContent = document.querySelector('.menu-content');
+            var blurBackground = document.querySelector('.blur-background');
+            
+            if (menuContent.style.display === 'block') {
+                menuContent.style.opacity = '0';
+                menuContent.style.transform = 'translate(-50%, -50%) scale(0.95)';
+                setTimeout(function() {
+                    menuContent.style.display = 'none';
+                    blurBackground.style.display = 'none';
+                }, 500);
+            }
+        }
+    };
+</script>
+<script>
+    const texts = [
+        "John Fitzgerald Kennedy, known as JFK, is the thirty-fifth President of the United States of America. Born on May 29, 1917, he died on November 22, 1963. He served as president from 1961 to 1963, and faced many political challenges, including the Cuban Missile Crisis and the Civil Rights Movement. He was killed in an assassination in Dallas, Texas.Kennedy was born in Brooklyn, Massachusetts, and is the son of Joseph Kennedy Sr. and Rose Kennedy. He was a Kennedy family who emigrated from the county of Wexford, Ireland, and studied at Harvard before joining the Reserve Forces in the United States Navy in 1941. Kennedy led BT boats in the Pacific during World War II, receiving a Navy and Marine Corps medal for his service. After the war, Kennedy represented Massachusetts' 11th Congressional District in the House of Representatives from 1947 to 1953. He was subsequently elected to the United States Senate and served as senator from Massachusetts from 1953 to 1960. During this period he published his book Features in Courage, which won a Pulitzer Prize for biography. Kennedy ran in the 1960 presidential election, narrowly beating then-Vice President and Republican counterpart Richard Nixon.The Kennedy period was marked by tensions with communist states in the cold war. The number of US military advisers increased in South Vietnam. In April 1961, the U.S. military failed to attempt to overthrow the Cuban government and President Fidel Castro in the invasion of the Bay of Pigs. Kennedy subsequently rejected plans by the Joint Chiefs of Staff to organize false attacks on American soil to increase the people s support for the war against Cuba. In October 1962, United States spy aircraft discovered Soviet missile bases in Cuba; This was followed by a period of tension known as the Cuban missile crisis, which almost led the world to a nuclear war. Kennedy worked locally to establish peace teams and support the civil rights movement, but was not successful in endorsing his new border policies. Kennedy is ranked high in surveys of historians and the general public about American presidents. His average positive poll on Gallup indicators is 70% and is the highest among all presidents in the history of the polling institution.Kennedy was assassinated in Dallas on 22 November 1963. Vice-President Lyndon Johnson was sworn in as President later that day. The FBI investigation and Warren's report officially concluded that Lee Harvey Oswald was the only murderer, but different groups see Kennedy as the victim of a conspiracy. After Kennedy's death, laws were passed with several of his proposals, including the Civil Rights Act 1964 and the Revenue Act 1964.",
+    ];
+    function typeText(element, text, speed) {
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            }
+        }
+        type();
+    }
+    const textElement = document.getElementById('text');
+    let currentText = 0;
+    function startTyping() {
+        if (currentText < texts.length) {
+            textElement.innerHTML = '';
+            typeText(textElement, texts[currentText], 0);
+            currentText++;
+            setTimeout(startTyping, texts[currentText - 1].length * 100 + 2000);
+        }
+    }
+    startTyping();
+</script>
+    <script src="https://kit.fontawesome.com/192fe9387c.js" crossorigin="anonymous"></script>
+</body>
+</html>
